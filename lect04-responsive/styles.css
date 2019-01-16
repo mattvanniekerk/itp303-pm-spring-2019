@@ -1,0 +1,184 @@
+/* Declare the font file we'll be using */
+		@font-face {
+			font-family: 'Hamster';
+			src: url('hamster_2/hamster.otf');
+		}
+		html,body {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			background-color: #4d7f96;
+			font-family: 'Dosis', sans-serif;
+		}
+		#header {
+			background-image: url('http://303.itpwebdev.com/~ta303/assets/the-office/theoffice.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			padding: 110px 0px;
+		}
+		#header h1 {
+			margin: 0;
+			text-align: center;
+			color: white;
+			font-size: 70px;
+			font-weight: normal;
+			text-shadow: 4px 3px 0 #7A7A7A;
+			font-family: 'Hamster', 'Arial', sans-serif;
+		}
+		#main {
+			/*width: 1000px;*/
+
+			/* width is now 100% of its direct parent, which is the <body> aka the browser */
+			width: 90%;
+
+			/* Add a limit to how big #main can be */
+			max-width: 1000px;
+
+			margin: 0 auto;
+			/*background-color: #d9f2fd;*/
+			background-color: green;
+		}
+		#main:after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+		#sidebar {
+			float: left;
+			/*width: 180px;*/
+			/* width is 20% of its direct parent, which is #main */
+			width: 20%;
+
+			/* Magical property. The width takes into account padding so the width will always be set at 20%. */
+			box-sizing: border-box;
+
+			padding: 0px 10px;
+			text-align: center;
+			background-color: #d9f2fd;
+		}
+		#sidebar img {
+			width: 100%;
+		}
+		#content {
+			float: left;
+			/*width: 780px;*/
+			width: 80%;
+			box-sizing: border-box;
+			padding: 0px 10px;
+			background-color: white;
+		}
+		#content .figure {
+			text-align: center;
+		}
+		#footer {
+			background-color: #263f4b;
+			color: white;
+			padding: 10px 0;
+			text-align: center;
+		}
+
+		/* NAV STUFF */
+		#nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		#nav li {
+			background-color: #054C6E;
+			width: 250px;
+			text-align: center;
+			float: left;
+
+			/* rare exception to define height */
+			min-height: 50px;
+			/* vertical centering trick */
+			line-height: 50px;
+
+			position: relative;
+		}
+		#nav li:hover {
+			background-color: skyblue;
+		}
+		/* Sub menu is inside a ul inside a ul */
+		#nav ul ul {
+			/* the direct parent of this element is <li>Menu 2</li>*/
+			position: absolute;
+			top: 50px;
+			left: 0px;
+			visibility: hidden;
+		}
+		/* Sub-sub menu is ul ul ul */
+		#nav ul ul ul {
+			/* the direct parent of this element is <li>Sub-menu2</li>*/
+			position: absolute;
+			left: 250px;
+			top: 0px;
+			visibility: hidden;
+		}
+
+		/* Hover effect */
+		/* Select direct child (ul) not grandchildren (ul ul) */
+		#nav li:hover > ul {
+			visibility: visible;
+		}
+		#navbar {
+			background-color: #054C6E;
+		}
+		#nav {
+			width: 1000px;
+			margin: 0 auto;
+		}
+		#nav:after {
+			clear: both;
+			content: "";
+			display: table;
+		}
+		#nav a {
+			color: white;
+			text-decoration: none;
+		}
+
+
+		/* Media queries */
+		@media(max-width: 768px) {
+			#header h1 {
+				font-size: 100px;
+				color: red;
+			}
+			#main {
+				width: 100%;
+			}
+			#sidebar {
+				width: 100%;
+			}
+			#content {
+				width: 100%;
+			}
+			#sidebar .character {
+				width: 24%;
+				float: left;
+				/* box sizing does not force margins to adhere to the width of this div */
+				box-sizing: border-box;
+				margin-left: 0.5%;
+				margin-right: 0.5%;
+				/*padding-left: 10px;
+				padding-right: 10px;*/
+			}
+
+		}
+
+		@media(max-width: 576px) {
+			#header h1 {
+				font-size: 80px;
+				color: green;
+			}
+			#sidebar .character {
+				width: 49%;
+			}
+			#content img {
+				/*visibility: hidden;*/
+				display: none;
+			}
+		}
