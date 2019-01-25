@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<style>
+		/* You can override Bootstrap's classes. HOWEVER this might not be the best idea because it will affect your entire page. */
+		/*.btn-danger {
+			background-color: purple;
+		}*/
+
+		/* My suggestion: create your own class */
+		#btn-purple {
+			background-color: purple;
+		}
+		.btn-purple {
+
+		}
+		.container {
+			background-color: lightgreen;
+		}
+		.col {
+			border: 2px solid green;
+		}
+		.row-first {
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		.col-tall {
+			padding-top: 10px;
+		}
+		.inner {
+			padding-top: 10px;
+		}
+		/* stay away from changing width or margin padding left/right on .col */
+	</style>
+</head>
+<body>
+	<!-- To create a grid with bootstrap, must start with .container or .container-fluid -->
+	<div class="container">
+		<div class="row row-first">
+			<div class="col col-12 col-md-6 col-lg-3 col-tall">
+				<div class="inner">
+					Column 1
+				</div>
+			</div>
+			<div class="col col-12 col-md-6 col-lg-3">
+				Column 2
+			</div>
+			<div class="col col-12 col-md-6 col-lg-3">
+				Column 3
+			</div>
+			<div class="col col-12 col-md-6 col-lg-3">
+				Column 4
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				Column 1
+			</div>
+			<div class="col">
+				Column 2
+			</div>
+			<div class="col">
+				Column 3
+			</div>
+		</div>
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	Hello
+
+	<button class="btn btn-primary">Click me</button>
+	<button class="btn btn-danger btn-purple">Delete</button>
+	<button class="btn btn-danger">Cancel</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
