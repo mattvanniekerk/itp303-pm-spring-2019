@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Numbers, Strings, User Input</title>
+	<style>
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+		}
+		label {
+			width: 80px;
+		}
+		input {
+			height: 15px;
+			width: 200px;
+		}
+		.error {
+			color: red;
+			font-weight: bold;
+			margin-left: 10px;
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="typing">Start typing here...</h1>
+	<form method="GET" action="">
+		<div class="form-row">
+			<label for="name-input">Name:</label>
+			<input id="name-input" type="text" name="name" value=""/>
+			<div class="error">Error!!!</div>
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age:</label> 
+			<input id="age-input" type="text" name="age" value=""/>
+		</div>
+
+		<div class="form-row">
+			<!-- Two ways to create a button in forms -->
+			<!-- <input type="submit" value="Go!"/> -->
+			<button type="submit">Register</button>
+		</div>
+
+	</form>
+
+<script>
+	// Anything in here is JS
+	// Keypress
+	document.onkeydown = function() {
+		// console.log("onkeydown");
+	}
+	document.onkeyup = function() {
+		// console.log("onkeyup");
+	}
+	// Keypress is similar to keydown except keypress doesn't pick up arrow, control, etc. It's only for "typing" text
+	let isFirstTyping = true;
+	document.onkeypress = function(event) {
+		// console.log(event.key);
+
+		//document.querySelector("#typing").innerHTML = event.key;
+
+		// Make it remember whatever was typed previously. Aka append.
+		//document.querySelector("#typing").innerHTML = document.querySelector("#typing").innerHTML + event.key;
+
+		if(isFirstTyping) {
+			document.querySelector("#typing").innerHTML = "";
+			isFirstTyping = false;
+		}
+
+		// shorthand
+		document.querySelector("#typing").innerHTML += event.key;
+	}
+	document.onscroll = function() {
+
+	}
+
+	let number = 7;
+	let text = "7.5435";
+
+	// console.log(number);
+	// console.log(text);
+
+	// console.log( 7 + 7.1232 );
+	// console.log( 7 + "7" );
+
+	// Convert a string into number
+	// console.log( parseInt(text) );
+	// console.log( parseFloat(text) );
+
+	// console.log( 1 / 3 );
+	// console.log( 1 / 0 );
+	// console.log( -1 / 0 );
+	// console.log( 0 / "hi" );
+
+	// console.log( Math.PI );
+	// console.log( Math.ceil(1.1) );
+	// console.log( Math.floor(1.999) );
+	// console.log( Math.round(1.499999) );
+
+
+	// ----- STRINGS
+
+	let firstName = "nayeon";
+	let lastName = "kim";
+
+	// can add (aka concatenate) strings with plus (+) sign
+	// console.log(firstName + " " + lastName);
+	// console.log( firstName[1] );
+	// console.log( firstName.length );
+	// console.log( firstName.charAt(0) );
+
+	// firstName[0] = 'z';
+	// console.log(firstName);
+
+	// returns the index (aka position) of the first occurence of the parameter
+	// console.log( firstName.indexOf("n") );
+
+	// returns the index (aka position) of the last occurence of the parameter
+	// console.log( firstName.lastIndexOf("n") );
+	// console.log( firstName.toUpperCase() );
+
+	// ---- VALIDATION
+
+	// What event needs to happen to trigger the validation?
+	document.querySelector("form").onsubmit = function() {
+		// Now run the validation
+		console.log( document.querySelector("#name-input").value );
+		let nameInput = document.querySelector("#name-input").value;
+
+		if(nameInput.length == 0) {
+			// display an error
+			bvbvbvb
+		}
+		else {
+			document.querySelector("#name-input").nextElementSibling.style.visibility = "hidden";
+		}
+
+
+
+		// overrides the default behavior. prevents form from being submitted
+		return false;
+
+	}
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
