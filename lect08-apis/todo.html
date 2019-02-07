@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo</title>
+</head>
+<body>
+	<h1>To Do List</h1>
+	<form id="form">
+		<input type="text" id="todo-input" placeholder="Add to-do item"/>
+		<button type="submit">Add</button>
+	</form>
+	<ul id="list">
+		<li>Do laundry</li>
+		<li>Order Postmates</li>
+		<li>Buy movie tickets</li>
+	</ul>
+
+	<script>
+		document.querySelector("#form").onsubmit = function() {
+
+			// Grab the to do item that user typed in
+			let todoInput = document.querySelector("#todo-input").value;
+			console.log(todoInput);
+
+			// Create a <li> tag
+			let listElement = document.createElement("li");
+			listElement.innerHTML = todoInput;
+			listElement.className = "hello hiya wazup";
+			console.log(listElement);
+
+			// Append newly created <li> tag to the <ul>
+			document.querySelector("#list").appendChild(listElement);
+
+			
+			// Prevent the form from actually submitting
+			return false;
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
