@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regular Expressions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<h1 class="col-12 mt-3">Regular Expressions</h1>
+			<h2 class="col-12 mt-3">Sample Text</h2>
+
+			<div id="sample-str" class="col-12">
+				When University of Southern California first opened its doors to 53 students and 10 teachers in 1880, the city still lacked paved streets, electric lights, telephones and a reliable fire alarm system. Today, University of Southern California is home to more than 41,000 students and nearly 3,800 full-time faculty, and is located in the heart of one of the biggest metropolises in the world. A simpler example with special characters !@#$%^&*()-=_+ and numbers 123-456_890+234a. Some words: book, hook, hem, heel, heed, sheep, feed, color, colour.
+			</div>
+
+		</div> <!-- .row -->
+
+		<div class="row">
+			<h2 class="col-12 mt-4">String Replacement</h2>
+			<div class="col-12 mt-3">
+				<form id="replace-form">
+					<div class="form-group row">
+						<label for="find" class="col-sm-2 col-form-label">Find: <span class="text-danger">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" name="find" class="form-control" placeholder="University of Southern California" id="find">
+						</div>
+					</div> <!-- .form-group -->
+
+					<div class="form-group row">
+						<label for="replace" class="col-sm-2 col-form-label">Replace with: <span class="text-danger">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" name="replace" class="form-control" placeholder="USC" id="replace">
+						</div>
+					</div> <!-- .form-group -->
+
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Replace</button>
+						</div> <!-- .col -->
+					</div> <!-- .form-group -->
+				</form>
+			</div> <!-- .col -->
+		</div> <!-- .row -->
+
+		<div class="row">
+			<h2 class="col-12 mt-4">String Extraction</h2>
+			<div class="col-12 mt-3">
+				<form id="substring-form">
+					<div class="form-group row">
+						<label for="start" class="col-sm-2 col-form-label">Start: <span class="text-danger">*</span></label>
+						<div class="col-sm-10">
+							<input type="number" name="start" class="form-control" placeholder="0" id="start">
+						</div>
+					</div> <!-- .form-group -->
+
+					<div class="form-group row">
+						<label for="length" class="col-sm-2 col-form-label">Length with:</label>
+						<div class="col-sm-10">
+							<input type="number" name="length" class="form-control" id="length">
+						</div>
+					</div> <!-- .form-group -->
+
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Extract</button>
+						</div> <!-- .col -->
+					</div> <!-- .form-group -->
+				</form>
+			</div> <!-- .col -->
+
+		</div> <!-- .row -->
+
+		<div class="row mt-3 mb-5">
+			<div class="col-3 text-right font-weight-bold">Extracted String:</div>
+			<div id="substring-result" class="col-9"></div>
+		</div> <!-- .row -->
+
+		<div class="row">
+			<h2 class="col-12 mt-4">Username Validation</h2>
+
+			<div class="col-12">
+				<ul>
+					<li class="mt-2">Username cannot be empty.</li>
+					<li>Username cannot contain uppercase letters.</li>
+				</ul>
+			</div> <!-- .col -->
+
+			<div class="col-12 mt-3">
+				<form id="username-form">
+					<div class="form-group row">
+						<label for="username" class="col-sm-2 col-form-label">Username: <span class="text-danger">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" name="username" class="form-control" placeholder="ttrojan" id="username">
+
+							<small id="username-error" class="form-text"></small>
+
+						</div>
+					</div> <!-- .form-group -->
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Validate</button>
+						</div> <!-- .col -->
+					</div> <!-- .form-group -->
+				</form>
+			</div> <!-- .col -->
+		</div> <!-- .row -->
+
+		<div class="row">
+			<h2 class="col-12 mt-4">Phone Validation</h2>
+
+			<div class="col-12">
+				<ul>
+					<li class="mt-2">Phone cannot be empty.</li>
+					<li>Phone must use one of the acceptable formats.</li>
+				</ul>
+			</div> <!-- .col -->
+
+			<div class="col-12 mt-3">
+				<form id="phone-form">
+					<div class="row mb-2">
+						<div class="col-sm-8 offset-sm-2">
+							<small class="form-text text-muted">Acceptable formats: 1234567890, (123) 456-7890, 123-456-7890</small>
+						</div>
+					</div> <!-- .row -->
+					<div class="form-group row">
+						<label for="phone" class="col-sm-2 col-form-label">Phone: <span class="text-danger">*</span></label>
+						<div class="col-sm-8">
+							<input type="text" name="phone" class="form-control" placeholder="(123) 456-7890" id="phone">
+
+							<small id="phone-error" class="form-text"></small>
+
+						</div>
+						<div class="col-sm-2 mt-3 mt-sm-0">
+							<button id="phone-format" type="button" class="btn btn-outline-secondary">Format</button>
+						</div>
+					</div> <!-- .form-group -->
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Validate</button>
+						</div> <!-- .col -->
+					</div> <!-- .form-group -->
+				</form>
+			</div> <!-- .col -->
+		</div> <!-- .row -->
+
+		<div class="row">
+			<h2 class="col-12 mt-4">Email Validation</h2>
+
+			<div class="col-12">
+				<ul>
+					<li class="mt-2">Email cannot be empty.</li>
+					<li>Must be a valid email address.</li>
+				</ul>
+			</div> <!-- .col -->
+
+			<div class="col-12 mt-3">
+				<form id="email-form">
+					<div class="form-group row">
+						<label for="email" class="col-sm-2 col-form-label">Email: <span class="text-danger">*</span></label>
+						<div class="col-sm-10">
+							<input type="text" name="email" class="form-control" placeholder="ttrojan@usc.edu" id="email">
+
+							<small id="email-error" class="form-text"></small>
+
+						</div>
+					</div> <!-- .form-group -->
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Validate</button>
+						</div> <!-- .col -->
+					</div> <!-- .form-group -->
+				</form>
+			</div> <!-- .col -->
+		</div> <!-- .row -->
+
+	</div> <!-- .container -->
+
+	<script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
