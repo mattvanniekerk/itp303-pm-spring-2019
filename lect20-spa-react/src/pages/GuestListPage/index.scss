@@ -1,0 +1,33 @@
+.add-item {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.back {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.form-item {
+  margin: 20px 0;
+}
+
+.guest-list {
+  border: 3px solid white;
+  margin: 0 80px;
+  width: 90%;
+}
+
+tr:nth-child(odd) {
+  background: white;
+}
+
+td, th {
+  padding: 10px 0;
+}
+
+.attendance {
+  margin-bottom: 20px;
+}

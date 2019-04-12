@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "The Von Trapp Family",
+    "numGuests": 7,
+    "attending": true
+  },
+  {
+    "id": 1,
+    "name": "The Brady Bunch",
+    "numGuests": 8,
+    "attending": true
+  },
+  {
+    "id": 2,
+    "name": "The Cosby's",
+    "numGuests": 7,
+    "attending": true
+  }
+]

@@ -1,0 +1,22 @@
+.item {
+  background: white;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.item-name {
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+}
+
+.purchased {
+  opacity: 0.5;
+
+  &:hover {
+    cursor: disabled;
+  }
+}
