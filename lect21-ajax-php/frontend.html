@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AJAX and PHP</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<style>
+		li {
+			margin-top: 5px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div id="test-output"></div>
+			<h1 class="col-12 mt-3">Song DB Search</h1>
+		</div> <!-- .row -->
+
+		<div class="row">
+			<form action="" method="" class="form-inline col-12 mt-3">
+				<div class="form-group">
+					<label for="search-term-id" class="sr-only">Search:</label>
+					<input type="text" class="form-control" id="search-term-id" placeholder="Search..." name="search-term">
+				</div>
+				<button type="submit" class="btn btn-primary ml-3">Search</button>
+			</form>
+		</div> <!-- .row -->
+
+		<div class="row">
+
+			<h4 class="col-12 mt-4">Search Results:</h4>
+
+			<div class="col-12">
+				<ol id="search-results">
+					<li>Track Name 1</li>
+					<li>Track Name 2</li>
+				</ol>
+			</div>
+
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+	<script>
+
+		// Call the ajaxGet function
+		//ajaxGet('backend.php', function(results) {
+			// When we get results from backend.php, this function gets run.
+			//console.log(results);
+
+			// Display backend results on the browser
+			//document.querySelector("#test-output").innerHTML = results.first_name + " " + results.last_name;
+
+			// Grab a piece of the data, the first name. Need to convert JSON string into JS objects so we can grab data using dot notation.
+			//console.log(results.first_name);
+
+		//});
+
+		// Passing parameters to backend.php
+		// ajaxGet('backend.php?firstName=Tommy&lastName=Trojan&hobby=watchTV', function(results) {
+		// 	console.log(results);
+		// });
+
+		// Make a POST request
+		// ajaxPost('backend.php', 'firstName=Tommy&lastName=Trojan&hobby=watchTV', function(results) {
+
+		// 	console.log(results);
+
+		// });
+
+
+
+		// User submitted a search request
+		document.querySelector("form").onsubmit = function() {
+			// When the user submit this form, the following things happen.
+
+			// Grab whatever the user typed in for the search term
+			let searchTerm = document.querySelector("#search-term-id").value.trim();
+
+			// Make ajax request, pass in the search term, and log out results.
+			ajaxGet('backend.php?term=' + searchTerm, function(results) {
+				console.log(results);
+
+				let resultsList = document.querySelector("#search-results");
+
+				// Clear the previous results
+				while( resultsList.hasChildNodes() ) {
+					resultsList.removeChild(resultsList.lastChild);
+				}
+
+				// Run through the results we got from the backend and append each song result to the resultsList
+				for( let i = 0; i < results.length; i++) {
+					// Create <li> on the fly
+					let li = document.createElement("li");
+					li.innerHTML = results[i].name;
+					resultsList.appendChild(li);
+				}
+
+
+			});
+
+			return false;
+		}
+
+
+
+		// Function declaration of ajaxGet
+		function ajaxGet(endpointUrl, returnFunction){
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', endpointUrl, true);
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+					if (xhr.status == 200) {
+						// returnFunction( xhr.responseText );
+
+						// Convert JSON string to JS objects
+						returnFunction( JSON.parse(xhr.responseText) );
+					} else {
+						alert('AJAX Error.');
+						console.log(xhr.status);
+					}
+				}
+			}
+			xhr.send();
+		};
+
+
+		// Function declaration for ajaxPost
+		function ajaxPost(endpointUrl, postData, returnFunction){
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', endpointUrl, true);
+
+			// POST requests usually require some extra header information. 
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+					if (xhr.status == 200) {
+						// returnFunction( xhr.responseText );
+
+						// Convert JSON string to JS objects
+						returnFunction( JSON.parse(xhr.responseText) );
+					} else {
+						alert('AJAX Error.');
+						console.log(xhr.status);
+					}
+				}
+			}
+			// Sends the body of post request. Sends POST variables.
+			xhr.send(postData);
+		};
+		
+
+
+
+	</script>
+
+</body>
+</html>
