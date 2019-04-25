@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS3 Animations</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: #FFE347;
+			font-size: 14px;
+			/* Transition - long form*/
+			/*transition-property: background-color;
+			transition-duration: 0.5s;
+			transition-delay: 0s;*/
+
+			/* Shorthand */
+			/*transition: background-color 0.5s 0s, width 1s 0s;*/
+
+			transition: all 1s 0s;
+		}
+		.box:hover {
+			background-color: #990000;
+			width: 350px;
+			font-size: 30px;
+			cursor: pointer;
+		}
+		.box2{
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+			transform: rotate(200deg);
+		}
+		.box3 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+			transform: scale(0.75);
+		}
+		.box4 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+			transform: skew(10deg, 10deg);
+		}
+		.box5 {
+			width: 200px;
+			height: 200px;
+			background-color: #EF767A;
+			margin-top: 20px;
+			margin-right: 20px;
+			float: left;
+			transform: translate(100px, -100px) rotate(30deg);
+		}
+		.clear {
+			clear: both;
+		}
+		.box6 {
+			width: 200px;
+			height: 200px;
+			margin-top: 60px;
+			background-color: #7D7ABC;
+			opacity: 1;
+			transition: transform 0.5s, opacity 0.5s;
+			transform: translate(0px, 0px) rotate(0deg) scale(1);
+		}
+		.box6:hover {
+			opacity: 0;
+			transform: translate(300px, 0) rotate(720deg) scale(1.5);
+		}
+		.box7 {
+			width: 280px;
+			margin-top: 20px;
+			margin-bottom: 400px;
+
+			/*animation-name: move;
+			animation-duration: 2s;
+			animation-delay: 0s;
+			animation-iteration-count: infinite;*/
+
+			/*shorthand*/
+			/*animation: move 2s 0.5s infinite;*/
+
+		}
+		/* Not covered in lecture: This class is added to trigger the animation*/
+		.box7.animate {
+			animation-name: move;
+			animation-duration: 2s;
+			animation-delay: 0s;
+			animation-iteration-count: infinite;
+			/*animation-fill-mode: forwards;*/
+		}
+		/* Defining the animation routine */
+		@keyframes move {
+			0% {
+				transform: translate(0,0);
+			}
+			33% {
+				transform: translate(100px, 0px) scale(1.5);
+				opacity: 0;
+			}
+			66% {
+				transform: translate(0, 300px);
+				opacity: 1;
+			}
+			100% {
+				transform: translate(0,0);
+			}
+		}
+		.box7 img {
+			width: 100%;
+		}
+		#button {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outercontainer">
+
+		<div class="box">
+			Hello, I'm a box.
+		</div>
+
+		<div class="box2">
+			Hello, I'm a rotating box.
+		</div>
+
+		<div class="box3">
+			Hello, I'm a scaled box
+		</div>
+
+		<div class="box4">
+			Hello, I'm a skewed box
+		</div>
+
+		<div class="box5">
+			Hello, I'm a box that translates.
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="box6">
+			Hello, I'm another box.
+		</div>
+		<!-- Not convered in lecture, but added for your benefit: -->
+		<button id="button">Click me</button>
+
+		<div class="box7">
+			<img src="https://media.altpress.com/uploads/2018/07/pikachu_pokemongo_header2016-1-696x449.png" />
+		</div>
+	</div>
+
+	<script>
+		document.querySelector("#button").onclick = function() {
+			document.querySelector(".box7").classList.add("animate");
+		}
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
